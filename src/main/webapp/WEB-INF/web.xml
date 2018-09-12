@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>news</display-name>
+  <context-param id="ParamValue_1536738040935">
+    <param-name>databaseType</param-name>
+    <param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  <context-param id="ParamValue_1536738040940">
+    <param-name>databaseUrl</param-name>
+    <param-value>jdbc:mysql://localhost:3306/news?useUnicode=true&amp;characterEncoding=utf8</param-value>
+  </context-param>
+  <context-param id="ParamValue_1536738040942">
+    <param-name>databaseUser</param-name>
+    <param-value>root</param-value>
+  </context-param>
+  <context-param id="ParamValue_1536738040944">
+    <param-name>databasePassword</param-name>
+    <param-value></param-value>
+  </context-param>
+  <servlet id="Servlet_1536738040909">
+    <description>初始化数据库</description>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>servlet.InitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping id="ServletMapping_1536738040880">
+    <servlet-name>InitServlet</servlet-name>
+    <url-pattern>/servlet/InitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet id="Servlet_1536738040917">
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet id="Servlet_1536738040919">
+    <servlet-name>NewsServlet</servlet-name>
+    <servlet-class>servlet.NewsServlet</servlet-class>
+  </servlet>
+  <servlet id="Servlet_1536738040922">
+    <servlet-name>CommentServlet</servlet-name>
+    <servlet-class>servlet.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping id="ServletMapping_1536738040893">
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/servlet/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping id="ServletMapping_1536738040896">
+    <servlet-name>NewsServlet</servlet-name>
+    <url-pattern>/servlet/NewsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping id="ServletMapping_1536738040899">
+    <servlet-name>CommentServlet</servlet-name>
+    <url-pattern>/servlet/CommentServlet</url-pattern>
+  </servlet-mapping>
+  <filter id="Filter_1536738040926">
+  	<filter-name>CharEncodingFilter</filter-name>
+  	<filter-class>filter.CharEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CharEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>	
+  </filter-mapping>
+  <filter id="Filter_1536738040932">
+    <filter-name>AuthorityFilter</filter-name>
+    <filter-class>filter.AuthorityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthorityFilter</filter-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-name>NewsServlet</servlet-name>
+    <servlet-name>CommentServlet</servlet-name>
+    <url-pattern>/news/manage/*</url-pattern>
+    <url-pattern>/jsp/manager/*</url-pattern>
+    <url-pattern>/jsp/user/*</url-pattern>
+    <url-pattern>/news/manage/*</url-pattern>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
