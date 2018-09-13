@@ -41,7 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <a style="color:red; font-size:20px;" href="update.jsp">修改文章</a>
 <br>
+<<<<<<< HEAD
 <p>sadselkdo</p>
+=======
+
+>>>>>>> branch 'master' of https://github.com/Z-Monkeys/Javaee2.git
 
 </div> 
 

@@ -21,7 +21,7 @@
     	<groupId>javax.servlet</groupId>
     	<artifactId>jstl</artifactId>
     	<version>1.2</version>
-    	<!-- 去除依赖 -->
+    	<!-- 去除依赖 -->    	<!-- 去除依赖 -->
             <exclusions>
                 <exclusion>
                     <groupId>javax.servlet</groupId>
